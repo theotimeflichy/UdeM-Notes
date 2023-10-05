@@ -1,10 +1,10 @@
 const { queryDatabase } = require("../config/db");
 
-module.exports.getDepartement = async (req, res) => {
+module.exports.getDepartment = async (req, res) => {
 
-    const departement = req.params.departement;
+    const department = req.params.department;
 
-    if (!(/^[a-zA-Z0-9]+$/.test(departement)))
+    if (!(/^[a-zA-Z0-9]+$/.test(department)))
         return res.status(400).json({ message: "Error." });
 
     try {
@@ -14,9 +14,9 @@ module.exports.getDepartement = async (req, res) => {
         const selectClause = selectClauses.join(', ');
 
         const [info, overall, courses] = await Promise.all([
-            queryDatabase(`SELECT * FROM departments WHERE acronym = ?;`, [`${departement}`]),
-            queryDatabase(`SELECT ${selectClause} FROM courses WHERE department = ? GROUP BY department;`, [`${departement}`]),
-            queryDatabase(`SELECT title, acronym, ${selectClause}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE department = ? GROUP BY title,acronym;`, [`${departement}`])
+            queryDatabase(`SELECT * FROM departments WHERE acronym = ?;`, [`${department}`]),
+            queryDatabase(`SELECT ${selectClause} FROM courses WHERE department = ? GROUP BY department;`, [`${department}`]),
+            queryDatabase(`SELECT title, acronym, ${selectClause}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE department = ? GROUP BY title,acronym;`, [`${department}`])
         ]);
 
         res.status(200).json({ info: info[0], overall: overall[0], courses });

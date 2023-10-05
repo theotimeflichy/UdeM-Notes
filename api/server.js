@@ -17,7 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use("/search", require("./routes/search.routes"));
 app.use("/course", require("./routes/course.routes"));
-app.use("/departement", require("./routes/departement.routes"));
+app.use("/department", require("./routes/department.routes"));
 app.use("/professor", require("./routes/professor.routes"));
 
 // Start server
