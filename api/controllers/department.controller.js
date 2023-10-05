@@ -9,10 +9,12 @@ module.exports.getDepartment = async (req, res) => {
 
     try {
 
+        // Ensemble des notes à calculer.
         const notes = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'E', 'F', 'W', '(S)', '(E)'];
         const selectClauses = notes.map((note) => `SUM(CASE WHEN grade = '${note}' THEN grade_number ELSE 0 END) AS '${note}'`);
         const selectClause = selectClauses.join(', ');
 
+        // On calcul les résultats totaux, par cours et on récupère les informations du département.
         const [info, overall, courses] = await Promise.all([
             queryDatabase(`SELECT * FROM departments WHERE acronym = ?;`, [`${department}`]),
             queryDatabase(`SELECT ${selectClause} FROM courses WHERE department = ? GROUP BY department;`, [`${department}`]),

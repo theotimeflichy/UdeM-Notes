@@ -8,10 +8,12 @@ module.exports.getCourse = async (req, res) => {
 
     try {
 
+        // Ensemble des notes à calculer.
         const notes = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D+', 'D', 'E', 'F', 'W', '(S)', '(E)'];
         const selectClauses = notes.map((note) => `SUM(CASE WHEN grade = '${note}' THEN grade_number ELSE 0 END) AS '${note}'`);
         const selectClause = selectClauses.join(', ');
 
+        // On calcul les résultats au total et par professeur.
         const [overall, byProfessor] = await Promise.all([
             queryDatabase(`SELECT title, acronym, ${selectClause}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE acronym = ? GROUP BY title LIMIT 1;`, [`${acronym}`]),
             queryDatabase(`SELECT professor, ${selectClause}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE acronym = ? GROUP BY title, professor;`, [`${acronym}`])
