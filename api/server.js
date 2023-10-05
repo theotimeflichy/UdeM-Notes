@@ -19,6 +19,7 @@ app.use("/search", require("./routes/search.routes"));
 app.use("/course", require("./routes/course.routes"));
 app.use("/department", require("./routes/department.routes"));
 app.use("/professor", require("./routes/professor.routes"));
+app.use("/program", require("./routes/program.routes"));
 
 // Start server
 app.listen(port, () => console.log("App : ok!"));
