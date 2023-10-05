@@ -1,0 +1,99 @@
+h1 {
+    color: #0e1641 !important;
+    font-weight: 650 !important;
+    font-size: 55px !important;
+    letter-spacing: -2px !important;
+    margin: 0;
+    padding: 0;
+    margin-top: -10px !important;
+    margin-left: -4px;
+}
+
+h2 {
+    color: #0e1641 !important;
+    font-weight: 650 !important;
+    font-size: 35px !important;
+    letter-spacing: -2px !important;
+    margin: 0;
+    padding: 0;
+}
+
+h3 {
+    color: #0e1641 !important;
+    font-weight: 500 !important;
+    font-size: 25px !important;
+    letter-spacing: -2px !important;
+    margin: 0 20 0 0;
+    padding: 0;
+}
+
+p {
+    color: #55565d !important;
+}
+
+.sub-title {
+    color: #0057ac;
+    font-weight: 500;
+    font-size: 15px;
+}
+
+.content {
+    background-color: white;
+    border-radius: 2px;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
+    box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
+    color: #0e1641 !important;
+}
+
+.content-light {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: 450;
+}
+
+
+.badge {
+    border-radius: 15px;
+    padding: 2px 8px;
+    font-size: 14px;
+    font-weight: 600 !important;
+}
+
+.badge-blue {
+    color: #0057ac;
+    background-color: rgba(0, 86, 172, 0.0);
+    text-decoration: underline;
+}
+
+/**
+  * Block from where data
+  */
+.FromWhereData {
+    background-color: #0057ac;
+    padding: 25px;
+}
+
+.FromWhereData p {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.FromWhereData h2 {
+    color: white !important;
+    font-weight: 650;
+    font-size: 35px;
+    letter-spacing: -1px;
+}
+
+.FromWhereData .charts {
+    color: white;
+    font-size: 50px;
+}
+
+.FromWhereData .arrowRight {
+    margin-left: 10px;
+}
+
+.FromWhereData .btn {
+    color: white !important;
+    font-weight: 600;
+}

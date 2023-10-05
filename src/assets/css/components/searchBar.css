@@ -1,0 +1,36 @@
+.SearchBarBox {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important;
+}
+
+.SearchBarBox .input-group {
+    background-color: #e5f0f8 !important;
+    border-radius: 30px !important;
+    padding: 5px !important;
+}
+
+.SearchBarBox .input-group-text {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 0 !important;
+
+    color: #0b113a !important;
+    font-size: 18px !important;
+    margin-top: 2px !important;
+}
+
+.SearchBarBox .form-control {
+    background-color: rgba(0, 0, 0, 0) !important;
+    border: 0px !important;
+    color: #0b113a !important;
+    font-size: 15px !important;
+    padding-left: 0px !important;
+}
+
+.SearchBarBox .form-control::placeholder {
+    color: rgba(14, 22, 65, .6) !important;
+}
+
+.SearchBarBox .form-control:focus {
+    box-shadow: none !important;
+    border-color: #ced4da !important;
+}

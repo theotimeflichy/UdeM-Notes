@@ -1,0 +1,17 @@
+@import url('https://admission.umontreal.ca/typo3conf/ext/udem_site_admission/Resources/Public/Css/Fonts.css?1695899268');
+
+html,
+body {
+  margin: 0px;
+  background-color: #fff !important;
+  background: linear-gradient(to right,
+      #fff 70%,
+      #0b113a 70.0001%,
+      #0b113a 100%);
+  font-family: "Graphik", sans-serif !important;
+}
+
+a {
+  text-decoration: none;
+  color: none;
+}
