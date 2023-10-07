@@ -37,20 +37,40 @@ p {
     font-size: 15px;
 }
 
+/**
+  *     Content
+  */
+
 .content {
-    background-color: white;
     border-radius: 2px;
+    padding: 20px;
+}
+
+.content-bar {
+    padding: 10px;
+    margin-bottom: 10px;
+    font-weight: 450;
     -webkit-box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
     box-shadow: 0px 0px 2px 0px rgba(0, 0, 0, 0.4);
     color: #0e1641 !important;
 }
 
 .content-light {
-    padding: 10px;
-    margin-bottom: 10px;
-    font-weight: 450;
+    padding: 5px 10px;
+    border-radius: 3px;
 }
 
+.content-lightblue {
+    background-color: #e5f0f8;
+}
+
+.content-dark {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+/**
+  *     Others
+  */
 
 .badge {
     border-radius: 15px;

@@ -13,7 +13,7 @@ const ShowResults = (data) => {
                     <ul>
                         {results.departments.map((r) => (
                             <a href={`/departement/${r.name}`}>
-                                <div className='content content-light'>
+                                <div className='content content-bar'>
                                     <span className='badge badge-blue'>{r.acronym}</span> {r.name}
                                 </div>
                             </a>
@@ -28,7 +28,7 @@ const ShowResults = (data) => {
                     <ul>
                         {results.programs.map((r) => (
                             <a href={`/program/${r.name}`}>
-                                <div className='content content-light'>
+                                <div className='content content-bar'>
                                     {r.name}
                                 </div>
                             </a>
@@ -43,7 +43,7 @@ const ShowResults = (data) => {
                     <ul>
                         {results.courses.map((r) => (
                             <a href={`/course/${r.acronym}`}>
-                                <div className='content content-light'>
+                                <div className='content content-bar'>
                                     <span className='badge badge-blue'>{r.acronym}</span> {r.title}
                                 </div>
                             </a>
@@ -58,7 +58,7 @@ const ShowResults = (data) => {
                     <ul>
                         {results.professors.map((r) => (
                             <a href={`/professor/${r.professor}`}>
-                                <div className='content content-light'>
+                                <div className='content content-bar'>
                                     {r.professor}
                                 </div>
                             </a>

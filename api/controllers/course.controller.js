@@ -15,12 +15,12 @@ module.exports.getCourse = async (req, res) => {
 
         // Permet de calculer la note la plus fréquente.
         const mostFrequentGrade = `(SELECT grade FROM courses WHERE acronym = ? ORDER BY grade_number DESC LIMIT 1) AS mostFrequentGrade`;
-        const mostFrequentGradeProfessor = `(SELECT grade FROM courses WHERE professor = nameOfProfessor AND acronym = ? ORDER BY grade_number DESC LIMIT 1) AS mostFrequentGrade`;
+        const mostFrequentGradeProfessor = `(SELECT grade FROM courses WHERE professor = title AND acronym = ? ORDER BY grade_number DESC LIMIT 1) AS mostFrequentGrade`;
 
         // On calcule les résultats au total et par professeur.
         const [overall, byProfessor] = await Promise.all([
             queryDatabase(`SELECT title, acronym, ${selectClause}, ${mostFrequentGrade}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE acronym = ? GROUP BY title LIMIT 1;`, [`${acronym}`, `${acronym}`]),
-            queryDatabase(`SELECT professor AS nameOfProfessor, ${selectClause}, ${mostFrequentGradeProfessor}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE acronym = ? GROUP BY title, professor;`, [`${acronym}`, `${acronym}`])
+            queryDatabase(`SELECT professor AS title, ${selectClause}, ${mostFrequentGradeProfessor}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE acronym = ? GROUP BY title, professor;`, [`${acronym}`, `${acronym}`])
         ]);
 
         res.status(200).json({ overall: overall[0], byProfessor }); // Ajoutez la note la plus fréquemment attribuée à la réponse.
