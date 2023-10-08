@@ -23,10 +23,10 @@ module.exports.getCourse = async (req, res) => {
             queryDatabase(`SELECT professor AS title, professor AS p, ${selectClause}, ${mostFrequentGradeProfessor}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE acronym = ? GROUP BY title, professor;`, [`${acronym}`, `${acronym}`])
         ]);
 
-        res.status(200).json({ overall: overall[0], byProfessor }); // Ajoutez la note la plus fréquemment attribuée à la réponse.
+        res.status(200).json({ overall: overall[0], byProfessor });
 
     } catch (err) {
-        res.status(500).json({ message: "Internal Server Error." + err });
+        res.status(500).json({ message: "Internal Server Error : " + err });
     }
 };
 

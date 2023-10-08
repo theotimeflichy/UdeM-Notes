@@ -24,7 +24,7 @@ module.exports.getProfessor = async (req, res) => {
         res.status(200).json({ overall: overall[0], courses });
 
     } catch (err) {
-        res.status(500).json({ message: "Internal Server Error." + err });
+        res.status(500).json({ message: "Internal Server Error : " + err });
     }
 
 };

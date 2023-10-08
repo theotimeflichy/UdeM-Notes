@@ -28,7 +28,7 @@ module.exports.getProgram = async (req, res) => {
         res.status(200).json({ overall: overall, courses: results });
 
     } catch (err) {
-        res.status(500).json({ message: "Internal Server Error." + err });
+        res.status(500).json({ message: "Internal Server Error : " + err });
     }
 
 };

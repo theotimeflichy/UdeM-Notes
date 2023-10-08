@@ -15,22 +15,13 @@ module.exports.makeSearch = async (req, res) => {
 
         let responseData = [];
 
-        if (
-            departments.length > 0 ||
-            programs.length > 0 ||
-            courses.length > 0 ||
-            professors.length > 0
-        ) {
-            responseData = {
-                departments, programs, courses, professors
-            };
-        }
+        if (departments.length > 0 || programs.length > 0 || courses.length > 0 || professors.length > 0)
+            responseData = { departments, programs, courses, professors };
 
         res.status(200).json(responseData);
 
     } catch (error) {
-        console.error("Error :", error);
-        res.status(500).json({ message: "An error occured during request." });
+        res.status(500).json({ message: "An error occured during request : " + error });
     }
 
 };
