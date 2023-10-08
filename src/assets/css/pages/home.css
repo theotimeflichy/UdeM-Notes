@@ -147,3 +147,55 @@ p {
     margin-bottom: 20px;
     color: black;
 }
+
+/**
+  *     loading icon (code from loading.io)
+  */
+
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 20px;
+    height: 10px;
+    margin-left: -40px;
+    top: -5px;
+}
+
+.lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 4px;
+    width: 4px;
+    background: #fff;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+    border-radius: 5px;
+    background-color: rgba(14, 22, 65, 0.8);
+}
+
+.lds-facebook div:nth-child(1) {
+    left: 0px;
+    animation-delay: -0.24s;
+}
+
+.lds-facebook div:nth-child(2) {
+    left: 10px;
+    animation-delay: -0.12s;
+}
+
+.lds-facebook div:nth-child(3) {
+    left: 20px;
+    animation-delay: 0;
+}
+
+@keyframes lds-facebook {
+    0% {
+        top: 3px;
+        height: 24px;
+    }
+
+    50%,
+    100% {
+        top: 8px;
+        height: 12px;
+    }
+}

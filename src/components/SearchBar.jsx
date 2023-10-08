@@ -3,6 +3,8 @@ import { FaSearch } from 'react-icons/fa';
 import '../assets/css/components/searchBar.css';
 
 const SearchBar = ({ sendData }) => {
+
+    const [isLoading, setIsLoading] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -23,6 +25,7 @@ const SearchBar = ({ sendData }) => {
 
                 // We send data to the parent component 
                 // (result (array), request (string), isLoading (boolean)).
+                setIsLoading(false)
                 sendData(json, searchQuery, false);
             })
             .catch(error => {
@@ -34,9 +37,12 @@ const SearchBar = ({ sendData }) => {
         setSearchQuery(value);
 
         // If lenght > 2, we send true to isWainting
-        if (value.length > 2)
+        if (value.length > 2) {
+            setIsLoading(true);
             sendData([], searchQuery, true);
+        }
     }
+
 
     return (
 
@@ -47,13 +53,19 @@ const SearchBar = ({ sendData }) => {
                         <div className="input-group-prepend">
                             <span className="input-group-text" id="basic-addon1"><FaSearch id="search-icon" /></span>
                         </div>
+
                         <input type="text"
                             className="form-control"
-                            placeholder="Rechercher un programme"
+                            placeholder="Rechercher un cours"
                             maxlength="50"
                             name="searchBar"
                             value={searchQuery}
-                            onChange={(e) => handleChange(e.target.value)} />
+                            onChange={(e) => handleChange(e.target.value)}
+                        />
+
+                        <div class="input-group-append">
+                            {isLoading && <div class="lds-facebook"><div></div><div></div><div></div></div>}
+                        </div>
                     </div>
                 </div>
             </div>

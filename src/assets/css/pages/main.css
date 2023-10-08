@@ -9,6 +9,7 @@ body {
       #0b113a 70.0001%,
       #0b113a 100%);
   font-family: "Graphik", sans-serif !important;
+  overflow-x: hidden;
 }
 
 a {
