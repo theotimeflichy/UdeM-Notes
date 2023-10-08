@@ -16,7 +16,7 @@ module.exports.getProgram = async (req, res) => {
 
         // Permet de calculer la note la plus fréquente.
         const mostFrequentGrade = `(SELECT grade FROM courses WHERE acronym IN (${courseList.map((a) => `'${a.course}'`).join(', ')}) ORDER BY grade_number DESC LIMIT 1) AS mostFrequentGrade`;
-        const mostFrequentGradeCourse = `(SELECT grade FROM courses WHERE acronym IN (${courseList.map((a) => `'${a.course}'`).join(', ')}) ORDER BY grade_number DESC LIMIT 1) AS mostFrequentGrade`;
+        const mostFrequentGradeCourse = `(SELECT grade FROM courses WHERE acronym = ? ORDER BY grade_number DESC LIMIT 1) AS mostFrequentGrade`;
 
         // On calcul les résultats pour l'ensemble du programme.
         const overall = await queryDatabase(`SELECT ${selectClause}, ${mostFrequentGrade}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE acronym IN (${courseList.map((a) => `'${a.course}'`).join(', ')});`);
@@ -25,7 +25,7 @@ module.exports.getProgram = async (req, res) => {
         const results = await Promise.all(courseList.map(async (courseObj) => {
             const acronym = courseObj.course;
             const overallQuery = `SELECT title, acronym, ${selectClause}, ${mostFrequentGradeCourse}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE acronym = ? GROUP BY title; `;
-            const overallData = await queryDatabase(overallQuery, [acronym]);
+            const overallData = await queryDatabase(overallQuery, [acronym, acronym]);
             return overallData[0];
         }));
 
