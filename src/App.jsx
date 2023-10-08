@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Course from './pages/Course';
 import Department from './pages/Department'
+import Professor from './pages/Professor'
+import Program from './pages/Program'
 
 import SearchBar from './components/SearchBar';
 import ShowResults from './components/ShowResults';
@@ -36,6 +38,8 @@ const App = () => {
 
                         <Route path="/course/:course" element={<Course />} />
                         <Route path="/department/:department" element={<Department />} />
+                        <Route path="/professor/:professor" element={<Professor />} />
+                        <Route path="/program/:program" element={<Program />} />
                     </Routes>
                 </Router>
             ) : (

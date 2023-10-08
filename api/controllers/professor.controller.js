@@ -17,7 +17,7 @@ module.exports.getProfessor = async (req, res) => {
 
         // On calcul les résultats totaux et par professeur.
         const [overall, courses] = await Promise.all([
-            queryDatabase(`SELECT ${selectClause}, ${mostFrequentGrade} FROM courses WHERE professor = ? GROUP BY professor;`, [`${professor}`, `${professor}`]),
+            queryDatabase(`SELECT ${selectClause}, ${mostFrequentGrade}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE professor = ? GROUP BY professor;`, [`${professor}`, `${professor}`]),
             queryDatabase(`SELECT title, acronym, ${selectClause}, ${mostFrequentGradeCourse}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE professor = ? GROUP BY title,acronym;`, [`${professor}`, `${professor}`])
         ]);
 

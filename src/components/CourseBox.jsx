@@ -92,7 +92,7 @@ const CourseBox = (data) => {
                         <AreaChart isResponsive data={graphData} >
                             <XAxis
                                 dataKey="name"
-                                stroke="rgba(0,0,0,0.4)"
+                                stroke="rgba(14, 22, 65,.8)"
                                 tick={{ fontSize: 12 }} />
                             <YAxis stroke="rgba(0,0,0,0)" />
 

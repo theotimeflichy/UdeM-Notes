@@ -6,37 +6,36 @@ import CourseBox from '../components/CourseBox';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-const Course = () => {
+const Program = () => {
 
     const [courseData, setCourseData] = useState([]);
-    const { course } = useParams();
+    const { program } = useParams();
 
     useEffect(() => {
-        fetch('http://localhost:5000/course/' + course)
+        fetch('http://localhost:5000/program/' + program)
             .then((response) => {
                 if (!response.ok)
                     throw new Error('error from network');
                 return response.json();
             })
-            .then((data) => {
-                setCourseData(data);
-            })
-            .catch((error) => { console.error(error); });
+            .then((data) => { setCourseData(data); });
     }, []);
 
-    if (!courseData || !courseData.overall || !courseData.byProfessor) return <p>Chargement en cours...</p>;
+    if (!courseData || !courseData.overall) return <p>Chargement en cours...</p>;
+
+    console.log(courseData.overall)
 
     return (
         <div className='container'>
             <div className='row'>
                 <div className='col-lg-10'>
 
-                    <h2>{courseData.overall.acronym}: {courseData.overall.title}</h2>
-                    <CourseBox courseData={courseData.overall} title="Tous les professeurs" />
+                    <h2>{program}</h2>
+                    <CourseBox courseData={courseData.overall} title="Tous les cours" />
 
-                    <h3>Par professeur</h3>
-                    {courseData.byProfessor.map((e) => (
-                        <a href={'../professor/' + e.title} >
+                    <h3>Cours</h3>
+                    {courseData.courses.map((e) => (
+                        <a href={'../course/' + e.acronym} >
                             <CourseBox courseData={e} title={e.title} />
                         </a>
                     ))}
@@ -47,4 +46,4 @@ const Course = () => {
     );
 }
 
-export default Course;
+export default Program;

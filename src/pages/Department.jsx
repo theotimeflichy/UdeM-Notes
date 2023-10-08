@@ -33,7 +33,9 @@ const Departement = () => {
 
                     <h3>Cours</h3>
                     {courseData.courses.map((e) => (
-                        <CourseBox courseData={e} title={e.title} />
+                        <a href={'../course/' + e.acronym} >
+                            <CourseBox courseData={e} title={e.title} />
+                        </a>
                     ))}
 
                 </div>
