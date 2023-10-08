@@ -12,7 +12,7 @@ const ShowResults = (data) => {
                     <h3>Départements</h3>
                     <ul>
                         {results.departments.map((r) => (
-                            <a href={`/departement/${r.name}`}>
+                            <a href={`/department/${r.acronym}`}>
                                 <div className='content content-bar'>
                                     <span className='badge badge-blue'>{r.acronym}</span> {r.name}
                                 </div>

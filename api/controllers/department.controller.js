@@ -21,7 +21,7 @@ module.exports.getDepartment = async (req, res) => {
         // On calcul les résultats totaux, par cours et on récupère les informations du département.
         const [info, overall, courses] = await Promise.all([
             queryDatabase(`SELECT * FROM departments WHERE acronym = ?;`, [`${department}`]),
-            queryDatabase(`SELECT ${selectClause}, ${mostFrequentGrade} FROM courses WHERE department = ? GROUP BY department;`, [`${department}`, `${department}`]),
+            queryDatabase(`SELECT ${selectClause}, ${mostFrequentGrade}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE department = ? GROUP BY department;`, [`${department}`, `${department}`]),
             queryDatabase(`SELECT title, acronym, ${selectClause}, ${mostFrequentGradeCourse}, GROUP_CONCAT(DISTINCT session ORDER BY session ASC SEPARATOR ', ') AS sessions FROM courses WHERE department = ? GROUP BY title,acronym;`, [`${department}`, `${department}`])
         ]);
 

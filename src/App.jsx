@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Course from './pages/Course';
+import Department from './pages/Department'
 
 import SearchBar from './components/SearchBar';
 import ShowResults from './components/ShowResults';
@@ -34,6 +35,7 @@ const App = () => {
                         <Route exact path="/" element={<Home />} />
 
                         <Route path="/course/:course" element={<Course />} />
+                        <Route path="/department/:department" element={<Department />} />
                     </Routes>
                 </Router>
             ) : (
