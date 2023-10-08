@@ -34,13 +34,17 @@ const Course = () => {
         <div className='container'>
             <div className='row'>
                 <div className='col-lg-10'>
-                    <h2>{courseData.overall.title}</h2>
-
+                    <h2>{courseData.overall.acronym}: {courseData.overall.title}</h2>
                     <CourseBox courseData={courseData.overall} />
+
+                    <h3>Par professeur</h3>
+                    {courseData.byProfessor.map((e) => (
+                        <CourseBox courseData={e} />
+                    ))}
 
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
 
