@@ -38,6 +38,57 @@ p {
 }
 
 /**
+  *     Home
+  */
+
+.home {
+    margin-top: 10vh;
+}
+
+.home .row {
+    height: 100%;
+}
+
+.home .col-lg-6 {
+    margin-top: 10%;
+}
+
+/**
+  * Block from where data
+  */
+.FromWhereData {
+    background-color: #0057ac;
+    padding: 25px;
+}
+
+.FromWhereData p {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.FromWhereData h2 {
+    color: white !important;
+    font-weight: 650;
+    font-size: 35px;
+    letter-spacing: -1px;
+    margin-top: 20px;
+}
+
+.FromWhereData .charts {
+    color: white;
+    font-size: 50px;
+}
+
+.FromWhereData .arrowRight {
+    margin-left: 10px;
+}
+
+.FromWhereData .btn {
+    color: white !important;
+    font-weight: 600;
+}
+
+
+/**
   *     Content
   */
 
@@ -95,38 +146,4 @@ p {
     background-color: #e5f0f8;
     margin-bottom: 20px;
     color: black;
-}
-
-
-/**
-  * Block from where data
-  */
-.FromWhereData {
-    background-color: #0057ac;
-    padding: 25px;
-}
-
-.FromWhereData p {
-    color: rgba(255, 255, 255, 0.6) !important;
-}
-
-.FromWhereData h2 {
-    color: white !important;
-    font-weight: 650;
-    font-size: 35px;
-    letter-spacing: -1px;
-}
-
-.FromWhereData .charts {
-    color: white;
-    font-size: 50px;
-}
-
-.FromWhereData .arrowRight {
-    margin-left: 10px;
-}
-
-.FromWhereData .btn {
-    color: white !important;
-    font-weight: 600;
 }

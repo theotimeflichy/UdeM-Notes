@@ -7,11 +7,9 @@ import '../assets/css/pages/home.css';
 const Home = () => {
 
     return (
-        <div>
-            <br /><br />
+        <div className='home'>
             <div className="row">
                 <div className="col-lg-6">
-                    <br /><br /><br /><br />
 
                     <span className='sub-title '>Université de Montréal</span>
                     <h1>NomProjet</h1>
@@ -20,11 +18,9 @@ const Home = () => {
                 </div>
                 <div className="col-lg-2"></div>
                 <div className="col-lg-4">
-                    <div className="FromWhereData">
+                    <div className="FromWhereData phone-disappear">
 
                         <FaChartPie className='charts' />
-
-                        <br /><br />
 
                         <h2>D'ou proviennent les données ?</h2>
 

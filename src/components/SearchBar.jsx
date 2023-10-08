@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FaSearch, FaChartPie } from 'react-icons/fa';
+import { FaSearch } from 'react-icons/fa';
 import '../assets/css/components/searchBar.css';
 
 const SearchBar = ({ sendData }) => {

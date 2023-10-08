@@ -1,6 +1,5 @@
-import React, { PureComponent } from 'react';
-import { ReferenceArea, LineChart, Line, Bar, XAxis, YAxis, BarChart, CartesianGrid, Tooltip, Legend, ResponsiveContainer, Area, AreaChart } from 'recharts';
-import ReactDOM from 'react-dom';
+import React from 'react';
+import { Line, XAxis, YAxis, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
 
 const CourseBox = (data) => {
 
