@@ -7,14 +7,27 @@ const SearchBar = ({ sendData }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
     const [searchQuery, setSearchQuery] = useState('');
+    const [timerId, setTimerId] = useState(null); // Ajoutez une référence pour le timer
 
     useEffect(() => {
-        if (searchQuery.length > 2) {
-            fetchData(searchQuery);
-        } else if (searchQuery.length == 0) {
-            setSearchResults([]);
-            sendData([], searchQuery);
+        // Nettoyez le timer précédent à chaque changement de la valeur de recherche
+        if (timerId) {
+            clearTimeout(timerId);
         }
+
+        // Définissez un nouveau timer pour retarder l'exécution de la recherche d'une seconde
+        const newTimerId = setTimeout(() => {
+            if (searchQuery.length > 2) {
+                fetchData(searchQuery);
+            } else if (searchQuery.length === 0) {
+                setSearchResults([]);
+                sendData([], searchQuery);
+            }
+        }, 1000);
+
+        // Enregistrez le nouvel ID de timer
+        setTimerId(newTimerId);
+
     }, [searchQuery]);
 
     const fetchData = (value) => {
@@ -57,7 +70,7 @@ const SearchBar = ({ sendData }) => {
                         <input type="text"
                             className="form-control"
                             placeholder="Rechercher un cours"
-                            maxlength="50"
+                            maxLength="50"
                             name="searchBar"
                             value={searchQuery}
                             onChange={(e) => handleChange(e.target.value)}
@@ -73,6 +86,5 @@ const SearchBar = ({ sendData }) => {
 
     );
 }
-
 
 export default SearchBar;
